@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/kaal_portfolio
+      JWT_SECRET: ci-jwt-secret
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD_HASH: ci-placeholder-hash
+      NEXT_PUBLIC_GITHUB_URL: https://github.com/Arpit299
+      NEXT_PUBLIC_LINKEDIN_URL: https://www.linkedin.com/in/arpit-kumawat06
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build

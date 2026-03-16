@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="KAAL Icon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64FFDA"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#020C1B"/>
+  <circle cx="256" cy="256" r="148" fill="none" stroke="url(#g)" stroke-width="20" opacity="0.9"/>
+  <path d="M170 344V168h34l52 86 52-86h34v176h-36V230l-50 81h-1l-50-81v114z" fill="url(#g)"/>
+</svg>
