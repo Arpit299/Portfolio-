@@ -167,7 +167,7 @@ export default function About() {
               Based in India, I collaborate with forward-thinking startups,
               enterprises, and individuals who want to stay ahead in the
               AI-driven era. Let&apos;s build intelligent systems that
-              don&apos;t just compute-they create value.
+              don&apos;t just compute—they create value.
             </p>
 
             {/* Skills Preview */}
