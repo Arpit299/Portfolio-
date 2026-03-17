@@ -8,7 +8,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Software Developer Intern",
     company: "Codexa Labs Pvt. Ltd.",
-    period: "2025 – Present",
+    period: "August 2025 – Feb 2026",
     description:
       "Building production-grade solutions with modern stack. Contributing to AI-powered features and backend architecture. Focusing on performance optimization and security best practices.",
     isEducation: false,
@@ -41,7 +41,10 @@ const experiences: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section bg-gradient-to-b from-navy-light to-navy-dark">
+    <section
+      id="experience"
+      className="section bg-gradient-to-b from-navy-light to-navy-dark"
+    >
       <div className="section-container">
         {/* Section Title */}
         <motion.div
@@ -84,7 +87,13 @@ export default function Experience() {
                   />
 
                   {/* Content Container */}
-                  <div className={isLeft ? "sm:text-right sm:pr-12" : "sm:col-start-2 sm:pl-12"}>
+                  <div
+                    className={
+                      isLeft
+                        ? "sm:text-right sm:pr-12"
+                        : "sm:col-start-2 sm:pl-12"
+                    }
+                  >
                     <motion.div
                       className="card"
                       whileHover={{
@@ -94,17 +103,21 @@ export default function Experience() {
                     >
                       {/* Badge */}
                       <div className="inline-block mb-3">
-                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                          exp.isEducation
-                            ? "bg-gold/20 text-gold"
-                            : "bg-accent-cyan/20 text-accent-cyan"
-                        }`}>
+                        <span
+                          className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                            exp.isEducation
+                              ? "bg-gold/20 text-gold"
+                              : "bg-accent-cyan/20 text-accent-cyan"
+                          }`}
+                        >
                           {exp.isEducation ? "Education" : "Experience"}
                         </span>
                       </div>
 
                       {/* Company & Title */}
-                      <h3 className="text-h4 text-slate-light mb-1">{exp.title}</h3>
+                      <h3 className="text-h4 text-slate-light mb-1">
+                        {exp.title}
+                      </h3>
                       <p className="text-sm text-accent-cyan font-semibold mb-2">
                         {exp.company}
                       </p>
