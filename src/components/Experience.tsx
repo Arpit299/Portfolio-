@@ -8,7 +8,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Software Developer Intern",
     company: "Codexa Labs Pvt. Ltd.",
-    period: "August 2025 – Feb 2026",
+    period: "August 2025 – February 2026",
     description:
       "Building production-grade solutions with modern stack. Contributing to AI-powered features and backend architecture. Focusing on performance optimization and security best practices.",
     isEducation: false,
