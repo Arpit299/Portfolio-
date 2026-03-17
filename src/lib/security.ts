@@ -15,18 +15,7 @@ function getJwtSecret(): string {
   return secret;
 }
 
-// Initialize DOMPurify for Node.js if needed
-let purify: any = DOMPurify;
-if (typeof window === "undefined") {
-  try {
-    const { JSDOM } = require("jsdom");
-    const dom = new JSDOM("");
-    purify = DOMPurify(dom.window as any) as any;
-  } catch {
-    // DOMPurify in client-side only mode
-    console.warn("DOMPurify server-side initialization skipped");
-  }
-}
+const purify = DOMPurify;
 
 /**
  * Hash password using bcrypt
@@ -41,7 +30,7 @@ export async function hashPassword(password: string): Promise<string> {
  */
 export async function comparePassword(
   password: string,
-  hash: string
+  hash: string,
 ): Promise<boolean> {
   return bcrypt.compare(password, hash);
 }
@@ -49,7 +38,9 @@ export async function comparePassword(
 /**
  * Generate JWT token
  */
-export function generateToken(payload: Omit<JWTPayload, "iat" | "exp">): string {
+export function generateToken(
+  payload: Omit<JWTPayload, "iat" | "exp">,
+): string {
   const jwtSecret = getJwtSecret();
   return jwt.sign(payload, jwtSecret, {
     expiresIn: JWT_EXPIRY,
@@ -75,7 +66,9 @@ export function verifyToken(token: string): JWTPayload | null {
 /**
  * Extract token from Authorization header
  */
-export function extractTokenFromHeader(authHeader: string | null): string | null {
+export function extractTokenFromHeader(
+  authHeader: string | null,
+): string | null {
   if (!authHeader || typeof authHeader !== "string") return null;
   const match = authHeader.match(/^Bearer\s+([^\s]+)$/);
   return match ? match[1] : null;
@@ -87,9 +80,7 @@ export function extractTokenFromHeader(authHeader: string | null): string | null
 export function sanitizeInput(input: string): string {
   if (typeof window === "undefined") {
     // Server-side simple sanitization
-    return input
-      .replace(/[<>]/g, "")
-      .trim();
+    return input.replace(/[<>]/g, "").trim();
   }
   return purify.sanitize(input, { ALLOWED_TAGS: [] });
 }
@@ -122,7 +113,7 @@ export function hashIpAddress(ip: string): string {
  */
 export function generateRateLimitKey(
   endpoint: string,
-  identifier: string
+  identifier: string,
 ): string {
   return `rate:${endpoint}:${identifier}`;
 }
@@ -147,10 +138,7 @@ export function generateCsrfToken(): string {
  */
 export function verifyCsrfToken(token: string, stored: string): boolean {
   try {
-    return crypto.timingSafeEqual(
-      Buffer.from(token),
-      Buffer.from(stored)
-    );
+    return crypto.timingSafeEqual(Buffer.from(token), Buffer.from(stored));
   } catch {
     return false;
   }

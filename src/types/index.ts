@@ -1,3 +1,5 @@
+import type { Variants } from "framer-motion";
+
 // User Types
 export interface User {
   id: string;
@@ -43,7 +45,7 @@ export interface RateLimitInfo {
 }
 
 // Animation Variants - Any to accommodate Framer Motion Variants type
-export type AnimationVariant = any;
+export type AnimationVariant = Variants;
 
 // Portfolio Data Types
 export interface SkillCategory {

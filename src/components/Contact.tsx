@@ -26,10 +26,12 @@ export default function Contact() {
     message: "",
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof ContactFormData, string>>
+  >({});
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -76,7 +78,9 @@ export default function Contact() {
       }, 3000);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "An error occurred. Please try again.";
+        error instanceof Error
+          ? error.message
+          : "An error occurred. Please try again.";
       setContactState({ status: "error", message });
 
       setTimeout(() => {
@@ -86,7 +90,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section bg-gradient-to-b from-navy-dark to-navy-light">
+    <section
+      id="contact"
+      className="section bg-gradient-to-b from-navy-dark to-navy-light"
+    >
       <div className="section-container max-w-3xl">
         {/* Section Title */}
         <motion.div
@@ -97,11 +104,12 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-h2 mb-4">
-            Let's <span className="text-accent-cyan">Connect</span>
+            Let&apos;s <span className="text-accent-cyan">Connect</span>
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-accent-cyan to-gold mx-auto" />
           <p className="text-body text-slate mt-6 max-w-lg mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you!
+            Have a project in mind or just want to chat? I&apos;d love to hear
+            from you!
           </p>
         </motion.div>
 

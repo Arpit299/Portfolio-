@@ -52,10 +52,7 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex justify-center"
           >
-            <svg
-              viewBox="0 0 300 300"
-              className="w-64 h-64 sm:w-80 sm:h-80"
-            >
+            <svg viewBox="0 0 300 300" className="w-64 h-64 sm:w-80 sm:h-80">
               {/* Background circles */}
               <motion.circle
                 cx="150"
@@ -103,7 +100,11 @@ export default function About() {
                   cx="150"
                   cy="150"
                   r="3"
-                  fill={i % 2 === 0 ? "rgba(100, 255, 218, 0.6)" : "rgba(255, 215, 0, 0.6)"}
+                  fill={
+                    i % 2 === 0
+                      ? "rgba(100, 255, 218, 0.6)"
+                      : "rgba(255, 215, 0, 0.6)"
+                  }
                   animate={{
                     cx: [150, 150 + 60 * Math.cos((i * Math.PI) / 2), 150],
                     cy: [150, 150 + 60 * Math.sin((i * Math.PI) / 2), 150],
@@ -137,19 +138,36 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-body text-slate mb-6 leading-relaxed">
-              I am an AI Consultant specializing in advanced prompt engineering, AI agent systems, and large language model optimization. With deep expertise in architecting intelligent automation and developing fine-tuned AI solutions, I help businesses unlock transformative value through cutting-edge artificial intelligence.
+              I am an AI Consultant specializing in advanced prompt engineering,
+              AI agent systems, and large language model optimization. With deep
+              expertise in architecting intelligent automation and developing
+              fine-tuned AI solutions, I help businesses unlock transformative
+              value through cutting-edge artificial intelligence.
             </p>
 
             <p className="text-body text-slate mb-6 leading-relaxed">
-              My focus includes designing scalable Retrieval-Augmented Generation (RAG) architectures, building custom AI agents, and deploying generative AI systems that streamline workflows, enhance decision-making, and drive innovation. I work with technologies such as OpenAI GPT, Anthropic Claude, Google Gemini, LangChain, and LlamaIndex—crafting tailored solutions that integrate seamlessly into modern tech stacks.
+              My focus includes designing scalable Retrieval-Augmented
+              Generation (RAG) architectures, building custom AI agents, and
+              deploying generative AI systems that streamline workflows, enhance
+              decision-making, and drive innovation. I work with technologies
+              such as OpenAI GPT, Anthropic Claude, Google Gemini, LangChain,
+              and LlamaIndex—crafting tailored solutions that integrate
+              seamlessly into modern tech stacks.
             </p>
 
             <p className="text-body text-slate mb-6 leading-relaxed">
-              From automating complex business processes to pioneering conversational AI and intelligent document analysis, I thrive on solving high-impact problems with precision and creativity. My mission is to make AI not just advanced, but practical, reliable, and impactful.
+              From automating complex business processes to pioneering
+              conversational AI and intelligent document analysis, I thrive on
+              solving high-impact problems with precision and creativity. My
+              mission is to make AI not just advanced, but practical, reliable,
+              and impactful.
             </p>
 
             <p className="text-body text-slate mb-8 leading-relaxed">
-              Based in India, I collaborate with forward-thinking startups, enterprises, and individuals who want to stay ahead in the AI-driven era. Let's build intelligent systems that don't just compute—they create value.
+              Based in India, I collaborate with forward-thinking startups,
+              enterprises, and individuals who want to stay ahead in the
+              AI-driven era. Let&apos;s build intelligent systems that
+              don&apos;t just compute-they create value.
             </p>
 
             {/* Skills Preview */}

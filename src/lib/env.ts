@@ -34,7 +34,7 @@ export function validateEnv(): Environment {
 
   if (missingVars.length > 0) {
     throw new Error(
-      `Missing required environment variables: ${missingVars.join(", ")}`
+      `Missing required environment variables: ${missingVars.join(", ")}`,
     );
   }
 
@@ -44,7 +44,8 @@ export function validateEnv(): Environment {
     JWT_SECRET: process.env.JWT_SECRET || "",
     ADMIN_EMAIL: process.env.ADMIN_EMAIL || "",
     ADMIN_PASSWORD_HASH: process.env.ADMIN_PASSWORD_HASH || "",
-    NODE_ENV: (process.env.NODE_ENV as any) || "development",
+    NODE_ENV:
+      (process.env.NODE_ENV as Environment["NODE_ENV"]) || "development",
     NEXT_PUBLIC_GITHUB_URL: process.env.NEXT_PUBLIC_GITHUB_URL || "#",
     NEXT_PUBLIC_LINKEDIN_URL: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#",
   };
